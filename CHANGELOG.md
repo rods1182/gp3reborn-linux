@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.1.0
+
+**English**
+- Same engine as GP3RT 1.1.0 for Windows: each frame's drawing goes to the graphics card in one go; textures are converted, reused and mip-mapped with much less work (big help on Intel graphics).
+- GP3 2000 no longer closes in long races (bug in GP3 2000's own 3D sound: a lock that doesn't really lock); fixed in memory, always on.
+- New `GP3Reborn-Configurator.html`: opens the game folder, reads `gp3rt.ini` and the last logs, shows the graphics card and game found, explains every option.
+- Docs: GPxPatch Debug ON (required) and CPU on all cores.
+- Thanks to Stephan Séguin ("Seguin"), the first user and the one who spread the word, and to JF ("BeADriver") for the log that revealed the GP3 2000 sound bug.
+
+**Português**
+- Mesmo motor do GP3RT 1.1.0 para Windows: o desenho de cada quadro vai para a placa de vídeo de uma vez; texturas convertidas, reaproveitadas e com mipmaps com muito menos trabalho (ajuda muito em placas Intel).
+- O GP3 2000 não fecha mais em corridas longas (erro do próprio som 3D do GP3 2000: uma trava que não trava de verdade); corrigido na memória, sempre ligado.
+- `GP3Reborn-Configurator.html` novo: abre a pasta do jogo, lê o `gp3rt.ini` e os últimos logs, mostra a placa de vídeo e o jogo encontrados e explica cada opção.
+- Documentação: Debug do GPxPatch LIGADO (obrigatório) e CPU em todos os núcleos.
+- Agradecimentos ao Stephan Séguin ("Seguin"), primeiro usuário e quem divulgou o projeto, e ao JF ("BeADriver"), pelo log que revelou o erro do som do GP3 2000.
+
 ## 1.0.2 (first public release / primeira versão pública)
 
 **English**

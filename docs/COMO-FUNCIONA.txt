@@ -77,7 +77,14 @@ Como quem desenha é o GP3 Reborn, e não um driver de 1998:
 - limites antigos do GP3 aumentados: pistas muito detalhadas da
   comunidade não perdem mais a carroceria dos carros, não mostram
   polígonos cinza e não fecham com a câmera afastada e muitos carros
-  (espaço para 16.000 bordas de polígonos por quadro, em vez de 2.999).
+  (espaço para 16.000 bordas de polígonos por quadro, em vez de 2.999);
+- o GP3 2000 não fecha mais em corridas longas: o som 3D dele protege a
+  lista de sons com uma trava que não trava de verdade, e em
+  processadores de vários núcleos um som podia ser apagado ainda
+  tocando. O GP3 Reborn corrige essa trava na memória;
+- desenho mais leve: cada quadro vai para a placa de vídeo de uma vez, e
+  as texturas são convertidas, reaproveitadas e filtradas com menos
+  trabalho (ajuda muito em placas Intel).
 
 
 5. E o GPxPatch?

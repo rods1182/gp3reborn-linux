@@ -74,7 +74,14 @@ Because the graphics are redrawn by GP3 Reborn, not by a 1998 driver:
 - softer rain spray near the TV cameras;
 - old GP3 limits raised: very detailed community tracks no longer lose
   car bodies, show grey polygons or crash with a wide camera and many
-  cars (room for 16,000 polygon edges per frame instead of 2,999).
+  cars (room for 16,000 polygon edges per frame instead of 2,999);
+- GP3 2000 no longer closes in long races: its 3D sound guards the list
+  of sounds with a lock that does not really lock, and on multi-core
+  processors a sound could be freed while still playing. GP3 Reborn
+  fixes that lock in memory;
+- lighter drawing: each frame goes to the graphics card in one go, and
+  textures are converted, reused and filtered with less work (a big
+  help on Intel graphics).
 
 
 5. And GPxPatch?

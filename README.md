@@ -18,7 +18,7 @@ It shares its engine with [GP3RT](https://github.com/rods1182/gp3rt---GrandPrix-
 
 ### Download
 
-Open **Releases** (on the right of this page) and download **GP3Reborn-Linux-1.0.2.tar.gz**. The automatic "Source code" links are for developers only.
+Open **Releases** (on the right of this page) and download **GP3Reborn-Linux-1.1.0.tar.gz**. The automatic "Source code" links are for developers only.
 
 ### Quick start
 
@@ -43,6 +43,8 @@ GPxPatch 4.52 is **René Smit's** work and is **not included** here. This projec
    - **On a Windows PC:** install it into a GP3 folder there, then copy `GPxPSup.dll` and `gpxpdata` over.
    - **With Wine, for the installer only:** run `wine inst-gpxpatch452.exe` and pick your game folder. Linux files are on drive `Z:` in Wine. The game itself never uses Wine.
 3. Double-click `GPxPatch` in the game folder. You get the GPxSet, GPxTrack, GPxLap, GPxSAT, GPxCInfo and GPxSound tabs, plus keys, fonts and video. "Create shortcuts" adds it to the menu, and "Start with / without GPxPatch" starts the game.
+
+In GPxPatch keep **Debug ON** (required by GP3 Reborn) and **CPU on all cores**.
 
 Do **not** run `GPxPatch.exe`, which is a Windows program. On Linux, GP3 Reborn loads the GPxPatch modules into the game by itself, without changing any GPxPatch file.
 
@@ -87,7 +89,7 @@ Usa o mesmo motor do [GP3RT](https://github.com/rods1182/gp3rt---GrandPrix-3-Run
 
 ### Download
 
-Abra **Releases** (à direita desta página) e baixe o **GP3Reborn-Linux-1.0.2.tar.gz**. Os links automáticos "Source code" são só para desenvolvedores.
+Abra **Releases** (à direita desta página) e baixe o **GP3Reborn-Linux-1.1.0.tar.gz**. Os links automáticos "Source code" são só para desenvolvedores.
 
 ### Começo rápido
 
@@ -112,6 +114,8 @@ O GPxPatch 4.52 é trabalho de **René Smit** e **não vem aqui**. Este projeto 
    - **Num PC com Windows:** instale numa pasta do GP3 de lá e copie o `GPxPSup.dll` e a `gpxpdata`.
    - **Com o Wine, só para o instalador:** rode `wine inst-gpxpatch452.exe` e escolha a pasta do jogo. No Wine, os arquivos do Linux ficam no drive `Z:`. O jogo em si nunca usa o Wine.
 3. Dê dois cliques em `GPxPatch` na pasta do jogo. Aparecem as guias GPxSet, GPxTrack, GPxLap, GPxSAT, GPxCInfo e GPxSound, além de teclas, fontes e vídeo. "Criar atalhos" põe no menu, e "Iniciar com / sem GPxPatch" abre o jogo.
+
+No GPxPatch, deixe o **Debug LIGADO** (o GP3 Reborn precisa dele) e a **CPU em todos os núcleos**.
 
 **Não** use o `GPxPatch.exe`, que é um programa de Windows. No Linux, o GP3 Reborn carrega os módulos do GPxPatch no jogo sozinho, sem mudar nenhum arquivo do GPxPatch.
 
@@ -147,6 +151,7 @@ Mande:
 ## Credits / Créditos
 
 - GP3 Reborn for Linux: Rodrigo Motta (Rods), with Claude (Anthropic).
+- Special thanks / agradecimento especial: **Stephan Séguin** ("Seguin" on GrandPrixGames.org) — the first user and the first feedback, who spread the word on GrandPrixGames.org, GP2Forum and the Grand Prix Games group on Facebook; **JF ("BeADriver")** — the log that revealed GP3 2000's 3D sound bug.
 - GPxPatch 4.52 © 2001–2019 René Smit — not included; get it from <https://www.sdidit.nl>. Thank you, René!
 - Grand Prix 3 / Grand Prix 3 2000 © Geoff Crammond / MicroProse.
 - Components:

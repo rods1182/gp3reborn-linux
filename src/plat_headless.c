@@ -66,7 +66,51 @@ void script_start(void) {
 }
 
 extern void win_post_message(HWND h, UINT msg, WPARAM w, LPARAM l);
+
+/* analysis: GP3_CTL=<file> - live control; lines appended to the file run at once:
+   key <name> | click <x> <y> | type <text> | shot <name> | dump <file> | quit */
+extern volatile int g_null_draw;
+static void ctl_poll(void) {
+    static const char *fn; static long off; static uint32_t lastchk; static int init;
+    if (!init) { init = 1; fn = getenv("GP3_CTL"); }
+    if (!fn) return;
+    uint32_t now = rt_ticks_ms(); if (now - lastchk < 100) return; lastchk = now;
+    FILE *f = fopen(fn, "r"); if (!f) return;
+    fseek(f, off, SEEK_SET); char line[256];
+    while (fgets(line, sizeof line, f)) {
+        if (!strchr(line, '\n')) break;
+        off = ftell(f);
+        char cmd[32] = "", a1[200] = "", a2[32] = "";
+        sscanf(line, "%31s %199s %31s", cmd, a1, a2);
+        LOG("ctl: %s %s %s", cmd, a1, a2);
+        if (!strcmp(cmd, "key")) { int vk = vk_from_name(a1); win_input_key(vk, vk_to_scancode(vk), 1); win_input_key(vk, vk_to_scancode(vk), 0); }
+        else if (!strcmp(cmd, "keydown")) { int vk = vk_from_name(a1); win_input_key(vk, vk_to_scancode(vk), 1); }
+        else if (!strcmp(cmd, "keyup")) { int vk = vk_from_name(a1); win_input_key(vk, vk_to_scancode(vk), 0); }
+        else if (!strcmp(cmd, "click")) { win_input_mouse(atoi(a1), atoi(a2), 1, 1); }
+        else if (!strcmp(cmd, "up")) { win_input_mouse(atoi(a1), atoi(a2), 1, 0); }
+        else if (!strcmp(cmd, "move")) { win_input_mouse(atoi(a1), atoi(a2), 0, 0); }
+        else if (!strcmp(cmd, "type")) { for (char *c = a1; *c; c++) win_input_char(*c == '_' ? ' ' : *c); }
+        else if (!strcmp(cmd, "shot")) { extern int g_probe_active; g_probe_active = 1; plat_screenshot(a1); }
+        else if (!strcmp(cmd, "dump")) { FILE *o = fopen(a1, "wb"); if (o) { fwrite((void *)(uintptr_t)0x401000, 1, 0xd72000 - 0x401000, o); fclose(o); LOG("ctl: dumped %s", a1); } }
+        else if (!strcmp(cmd, "null")) g_null_draw = atoi(a1);
+        else if (!strcmp(cmd, "pokelist")) {   /* pokelist <file>: binary pairs [u32 va][u32 value] */
+            FILE *d = fopen(a1, "rb"); uint32_t pr[2]; int k = 0;
+            if (d) { while (fread(pr, 4, 2, d) == 2) { *(volatile uint32_t *)(uintptr_t)pr[0] = pr[1]; k++; } fclose(d); }
+            LOG("ctl: poked list %s (%d)", a1, k);
+        }
+        else if (!strcmp(cmd, "poke")) {   /* poke <dumpfile> <va> <len>: copy bytes from a dump (based at 0x401000) */
+            char df[200]; unsigned long va = 0, ln = 0;
+            if (sscanf(line, "%*s %199s %li %li", df, (long *)&va, (long *)&ln) == 3) {
+                FILE *d = fopen(df, "rb");
+                if (d) { fseek(d, (long)(va - 0x401000), SEEK_SET); size_t r = fread((void *)(uintptr_t)va, 1, ln, d); fclose(d); LOG("ctl: poked %lx+%lx (%zu)", va, ln, r); }
+            }
+        }
+        else if (!strcmp(cmd, "quit")) { if (g_log) fflush(g_log); _exit(0); }
+    }
+    fclose(f);
+}
 void plat_pump(void) {
+    ctl_poll();
     uint32_t now = rt_ticks_ms() - 1000;   /* rt clock starts at 1s */
     if (g_cfg.max_seconds && now > (uint32_t)g_cfg.max_seconds * 1000) {
         LOG("max-seconds reached, exiting"); { extern void gpx_dump_modules(void); gpx_dump_modules(); }
@@ -81,7 +125,7 @@ void plat_pump(void) {
         case SE_SHOT: { extern int g_probe_active; g_probe_active = 1; plat_screenshot(e->arg);
             const char *md = getenv("GP3_MEMDUMP");
             if (md) { char fn[512]; snprintf(fn, sizeof fn, "%s_%s.bin", md, e->arg); FILE *f = fopen(fn, "wb");
-                      if (f) { fwrite((void *)(uintptr_t)0x401000, 1, 0xd00000 - 0x401000, f); fclose(f); } }
+                      if (f) { fwrite((void *)(uintptr_t)0x401000, 1, 0xd72000 - 0x401000, f); fclose(f); } }
             break; }
         case SE_ACTIVATE: { extern HWND g_main_hwnd; LOG("script: WM_ACTIVATE"); win_post_message(g_main_hwnd, 6, 1, 0); break; }
         case SE_QUIT: LOG("script: quit"); plat_screenshot("final"); if (g_log) fflush(g_log); _exit(0);

@@ -1,4 +1,4 @@
-GP3 Reborn 1.0.2 for Linux
+GP3 Reborn 1.1.0 for Linux
 Grand Prix 3 and Grand Prix 3 2000 running natively on Linux - no Wine, no Proton, no Steam
 ==========================================================================================
 
@@ -61,6 +61,11 @@ c) Double-click "GPxPatch" in the game folder. You get the GPxPatch tabs
    video and game). On the first tab, "Create shortcuts" adds
    "GPxPatch (Grand Prix 3)" to the menu and the desktop.
    "Start with GPxPatch" / "Start without GPxPatch" start the game.
+
+Important GPxPatch settings:
+- Debug: ON. GP3 Reborn needs it (with it off the game can close when you
+  press "Drive").
+- CPU: all cores ("full").
 
 Notes:
 - Do NOT run GPxPatch.exe: it is a Windows program. On Linux, "GPxPatch"
@@ -128,8 +133,10 @@ offers to open .exe files with Wine, say no.
 6. SETTINGS (gp3rt.ini)
 -----------------------
 Open GP3Reborn-Configurator.html in your browser (it works offline):
-"Open gp3rt.ini", pick the file in the game folder, change what you like,
-"Save". In Chrome/Chromium the file is saved in place. In Firefox it is
+"Open the game folder", pick the game folder: it reads gp3rt.ini and the
+last logs by itself, shows the graphics card and game it found, and
+explains every option ("More details"). Change what you like, "Save". In
+Chrome/Chromium the file is saved in place (and the folder is remembered). In Firefox it is
 downloaded to your Downloads folder: copy it into the game folder,
 replacing the old one. The GPxPatch screen ("Video and game" tab) changes
 the same options.
@@ -189,6 +196,14 @@ track, camera).
 10. CREDITS
 -----------
 GP3 Reborn for Linux: Rodrigo Motta, with Claude (Anthropic).
+
+Special thanks to:
+- Stephan Séguin ("Seguin" on GrandPrixGames.org): the first user and the
+  first feedback; he spread the word on GrandPrixGames.org, GP2Forum and
+  the Grand Prix Games group on Facebook. Merci, Stephan!
+- JF ("BeADriver" on GrandPrixGames.org): the log that revealed GP3 2000's
+  3D sound bug in long races, and testing the fix.
+
 GPxPatch 4.52 (c) 2001-2019 René Smit - not included; get it from
 https://www.sdidit.nl. Thank you, René!
 Grand Prix 3 and Grand Prix 3 2000 (c) Geoff Crammond / MicroProse. The

@@ -577,6 +577,7 @@ int main(int argc, char **argv) {
       if (!have && path_to_host("gpxpdata\\gxm\\gpxpatch.gxm", hp, sizeof hp)) LOG("GPxPatch: GPxPSup.dll missing from the game folder: modules not loaded");
     }
     if (!gpx_wanted) gp3_fix_string_table();   /* GPxPatch rewrites the string table loader itself */
+    gp3_fix_sound_lock();
     if (gpx_wanted) {
         /* GPxPatch: on Windows its launcher starts GP3 under a debugger and injects code that
            loads gpxpdata\gxm\gpxpatch.gxm at the entry point; that module loads the others
