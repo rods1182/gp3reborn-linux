@@ -148,6 +148,9 @@ footer { color: var(--muted); font-size: 12.5px; text-align: center; margin-top:
   <h2 data-t="h_game"></h2>
   <div class="card" id="c_game"></div>
 
+  <h2 data-t="h_replay"></h2>
+  <div class="card" id="c_replay"></div>
+
 
   <h2 data-t="h_preview"></h2>
   <div class="card"><details class="adv"><summary data-t="prev_sum"></summary><pre class="preview" id="preview"></pre></details></div>
@@ -166,7 +169,7 @@ footer { color: var(--muted); font-size: 12.5px; text-align: center; margin-top:
 
 <script>
 "use strict";
-const DEFAULT_INI = "; GP3 Reborn for Linux - settings / configuracoes\n; Easiest way: open GP3Reborn-Configurator.html in your browser.\n; Mais facil: abra o GP3Reborn-Configurator.html no navegador.\n\n[video]\n; fullscreen = desktop resolution / tela cheia na resolucao da area de trabalho\n; window = window / janela   (Alt+Enter switches in game / alterna no jogo)\nmode=fullscreen\n; window size in multiples of 640x480 / tamanho da janela em multiplos de 640x480\nwindow_scale=1\n; graphics card / placa de video: auto (dedicated if there are two / dedicada\n; se houver duas), dedicated, integrated, system (don't touch / nao mexe)\ngpu=auto\n; 3D internal resolution / resolucao interna do 3D:\n; auto (4x dedicated / dedicada, 2x integrated / integrada), 1, 2, 3, 4\ninternal_scale=auto\n; 1 = smooth textures / suavizar texturas\nforce_filtering=1\n; anisotropic filtering / filtragem anisotropica: auto, 0, 2, 4, 8, 16\nanisotropy=auto\n; 1 = V-Sync (recommended / recomendado)\nvsync=1\n; water spray and smoke opacity / opacidade do spray e da fumaca, %\n; (100 = GP3 original)\nspray_opacity=60\n\n; --- Widescreen ---\n; The 1280x1024 option of the game's graphics menu becomes this resolution.\n; A opcao 1280x1024 do menu de graficos do jogo vira esta resolucao.\n; -1 = desktop / area de trabalho; 0 = off / desligado; or / ou 1920 / 1080\nwide_width=-1\nwide_height=-1\n; 1 = Hor+ field of view (more picture at the sides, no stretching)\n;     campo de visao Hor+ (mais imagem dos lados, sem esticar)\nhor_plus=1\n; field of view / campo de visao, % (100 = default / padrao, 110 = wider / mais aberto)\nfov_percent=100\n\n[game]\n; numeric keypad / teclado numerico: 0 = follows NumLock / segue o NumLock;\n; 1 = always navigation keys / sempre teclas de navegacao (cockpit cameras /\n; cameras de bordo); 2 = always numbers / sempre numeros\nnumpad_keys=0\n; 1 = skip GP3's internal checks, as GPxPatch does (community tracks beyond\n;     the original limits) / ignora as verificacoes internas do GP3, como o\n;     GPxPatch faz (pistas da comunidade alem dos limites originais)\nskip_asserts=1\n; 1 = load GPxPatch when installed (GPxPSup.dll + gpxpdata) / carrega o\n;     GPxPatch quando instalado; 0 = plain game / jogo puro\ngpxpatch=1\n; 1 = 3D sound like on Windows / som 3D como no Windows (GP3 2000, GPxSound)\nsound3d=1\n; 1 = intro movies (Esc skips) / videos de abertura (Esc pula)\nintro_videos=1\n";
+const DEFAULT_INI = "; GP3 Reborn for Linux - settings / configuracoes\n; Easiest way: open GP3Reborn-Configurator.html in your browser.\n; Mais facil: abra o GP3Reborn-Configurator.html no navegador.\n\n[video]\n; fullscreen = desktop resolution / tela cheia na resolucao da area de trabalho\n; window = window / janela   (Alt+Enter switches in game / alterna no jogo)\nmode=fullscreen\n; window size in multiples of 640x480 / tamanho da janela em multiplos de 640x480\nwindow_scale=1\n; graphics card / placa de video: auto (dedicated if there are two / dedicada\n; se houver duas), dedicated, integrated, system (don't touch / nao mexe)\ngpu=auto\n; 3D internal resolution / resolucao interna do 3D:\n; auto (4x dedicated / dedicada, 2x integrated / integrada), 1, 2, 3, 4\ninternal_scale=auto\n; 1 = smooth textures / suavizar texturas\nforce_filtering=1\n; anisotropic filtering / filtragem anisotropica: auto, 0, 2, 4, 8, 16\nanisotropy=auto\n; 1 = V-Sync (recommended / recomendado)\nvsync=1\n; water spray and smoke opacity / opacidade do spray e da fumaca, %\n; (100 = GP3 original)\nspray_opacity=60\n\n; --- Widescreen ---\n; The 1280x1024 option of the game's graphics menu becomes this resolution.\n; A opcao 1280x1024 do menu de graficos do jogo vira esta resolucao.\n; -1 = desktop / area de trabalho; 0 = off / desligado; or / ou 1920 / 1080\nwide_width=-1\nwide_height=-1\n; 1 = Hor+ field of view (more picture at the sides, no stretching)\n;     campo de visao Hor+ (mais imagem dos lados, sem esticar)\nhor_plus=1\n; field of view / campo de visao, % (100 = default / padrao, 110 = wider / mais aberto)\nfov_percent=100\n\n[game]\n; numeric keypad / teclado numerico: 0 = follows NumLock / segue o NumLock;\n; 1 = always navigation keys / sempre teclas de navegacao (cockpit cameras /\n; cameras de bordo); 2 = always numbers / sempre numeros\nnumpad_keys=0\n; 1 = skip GP3's internal checks, as GPxPatch does (community tracks beyond\n;     the original limits) / ignora as verificacoes internas do GP3, como o\n;     GPxPatch faz (pistas da comunidade alem dos limites originais)\nskip_asserts=1\n; 1 = load GPxPatch when installed (GPxPSup.dll + gpxpdata) / carrega o\n;     GPxPatch quando instalado; 0 = plain game / jogo puro\ngpxpatch=1\n; 1 = 3D sound like on Windows / som 3D como no Windows (GP3 2000, GPxSound)\nsound3d=1\n; 1 = intro movies (Esc skips) / videos de abertura (Esc pula)\nintro_videos=1\n\n; --- Replay ---\n; 1 = whole-race replay: loads GP3Replay.dll if it is in the game folder (GP3 1.13)\n;     replay da corrida inteira: carrega o GP3Replay.dll se estiver na pasta\ngp3replay=1\n; 1 = GP3 2000 replay keys on GP3 1.13 (F1..F9) / teclas do replay do GP3 2000\nreplay_keys=1\n; 1 = show the F1..F9 legend in the replay / mostra a legenda F1..F9 no replay\nreplay_legend=1\n; 1 = spray and smoke after rewinding the replay (GP3 1.13)\n;     spray e fumaca depois de voltar o replay\nreplay_fx_fix=1\n; 1 = GP3 2000: replay up to 2 hours (the game stops at 1h30)\n;     GP3 2000: replay de ate 2 horas (o jogo para em 1h30)\nreplay_2h=1\n";
 
 /* ---------- texts ---------- */
 const T = {
@@ -177,7 +180,7 @@ pt: {
   drop: "…ou arraste para cá o gp3rt.ini (e, se quiser, o gp3linux.log e o gp3linux-game.log).",
   howto: "Escolha a pasta do jogo (onde estão o gp3 e o Gp3.exe): o configurador lê o gp3rt.ini sozinho e, se houver, os logs da última partida. No Chrome e no Chromium ele salva direto na pasta e lembra dela da próxima vez; no Firefox o arquivo vai para Downloads e você o copia para a pasta do jogo. A tela do GPxPatch (guia “Vídeo e jogo”) muda as mesmas opções.",
   h_presets: "Perfis rápidos", h_video: "Imagem e qualidade", h_wide: "Widescreen", h_screen: "Tela e placa de vídeo",
-  h_rain: "Chuva", h_game: "Jogo", h_fix: "Correções do jogo", h_adv: "Avançado", h_preview: "Arquivo que será salvo",
+  h_rain: "Chuva", h_game: "Jogo", h_fix: "Correções do jogo", h_replay: "Replay", h_adv: "Avançado", h_preview: "Arquivo que será salvo",
   adv_sum: "Opções avançadas e diagnóstico (só mude se souber o que faz)", prev_sum: "Ver o gp3rt.ini",
   footer: "GP3 Reborn — feito por um brasileiro nostálgico, com a ajuda do Claude. Este arquivo funciona sem internet.",
   nofile: "Nenhum arquivo aberto — mostrando o gp3rt.ini padrão. “Salvar” vai baixar um gp3rt.ini para você colocar na pasta do jogo.",
@@ -236,6 +239,16 @@ pt: {
   skip_asserts: ["Pistas além dos limites originais", "Ignora as verificações internas do GP3, como o Debug do GPxPatch.",
     "Necessário para pistas da comunidade que “só funcionam no modo debug”. Sem efeito em pistas originais."],
   intro_videos: ["Vídeos de abertura", "Mostra os vídeos da MicroProse ao abrir (Esc pula).", ""],
+  gp3replay: ["Replay da corrida inteira (GP3 1.13)", "Carrega o GP3Replay.dll, se ele estiver na pasta do jogo.",
+    "O GP3 1.13 só guarda um trecho curto da corrida no replay. O GP3Replay.dll amplia o replay para a corrida inteira (mais de 2 horas), fazendo a mudança na memória quando o jogo abre, sem um executável à parte como o gp3v.exe. Os saves de corrida ficam com uns 13 MB. Não tem efeito no GP3 2000."],
+  replay_keys: ["Teclas do replay do GP3 2000 (GP3 1.13)", "F1 a F9 no replay: voltas, play/pausa, câmera lenta, voltar e avançar suaves, quadro a quadro.",
+    "Durante a corrida o GP3 Reborn guarda uma foto por segundo (uns 10 KB cada). No replay, F5 e F8 voltam e avançam passando por essas fotos, F1 e F2 pulam de volta em volta, F3 (ou P) pausa, F4 é câmera lenta e F6/F7 andam um quadro. P e depois R abre o replay já no início da volta. Precisa do GP3Replay.dll para valer a corrida inteira."],
+  replay_legend: ["Legenda das teclas no replay", "Mostra as teclas F1 a F9 embaixo da tela durante o replay.",
+    "A tecla ativa fica destacada em amarelo. F9 mostra ou esconde a legenda durante o replay."],
+  replay_fx_fix: ["Spray e fumaça no replay (GP3 1.13)", "O spray da chuva e a fumaça não somem mais depois de recuar o replay.",
+    "O GP3 1.13 guarda o horário do próximo efeito de spray e fumaça e esse horário só anda para a frente. Ao recuar o replay, ele ficava lá na frente e nada era desenhado até o replay alcançar aquele ponto. Ligado, o horário volta junto com o replay."],
+  replay_2h: ["Replay de 2 horas (GP3 2000)", "O controle \u201cLength of replay\u201d vai até 2:00:00 (o jogo para em 1:30:00).",
+    "O GP3 2000 escolhe o tamanho do replay pela memória do PC e para em 1h30. Ligado, o máximo passa para 2 horas (uns 120 MB de memória). Ajuste em Options > Graphics > Length of replay."],
   sound3d: ["Som 3D", "Posição dos sons como no Windows (o GP3 2000 e o GPxSound usam).",
     "No GP3 2000 a correção do som 3D (que evita o jogo fechar em corridas longas) é aplicada sempre, sozinha."],
   numpad_keys: ["Teclado numérico", "Segue o NumLock, ou sempre navegação, ou sempre números.",
@@ -281,7 +294,7 @@ en: {
   drop: "…or drop gp3rt.ini here (and gp3linux.log and gp3linux-game.log too, if you like).",
   howto: "Pick the game folder (where gp3 and Gp3.exe are): the configurator reads gp3rt.ini by itself and, if present, the logs of the last session. In Chrome and Chromium it saves straight into the folder and remembers it next time; in Firefox the file goes to Downloads and you copy it into the game folder. The GPxPatch screen (“Video and game” tab) changes the same options.",
   h_presets: "Quick profiles", h_video: "Picture and quality", h_wide: "Widescreen", h_screen: "Screen and graphics card",
-  h_rain: "Rain", h_game: "Game", h_fix: "Game fixes", h_adv: "Advanced", h_preview: "File to be saved",
+  h_rain: "Rain", h_game: "Game", h_fix: "Game fixes", h_replay: "Replay", h_adv: "Advanced", h_preview: "File to be saved",
   adv_sum: "Advanced options and diagnostics (change only if you know what they do)", prev_sum: "Show gp3rt.ini",
   footer: "GP3 Reborn — made by a nostalgic Brazilian, with help from Claude. This file works offline.",
   nofile: "No file opened — showing the default gp3rt.ini. “Save” will download a gp3rt.ini for you to put in the game folder.",
@@ -340,6 +353,16 @@ en: {
   skip_asserts: ["Tracks beyond the original limits", "Skips GP3's internal checks, like GPxPatch Debug.",
     "Needed for community tracks that “only work in debug mode”. No effect on original tracks."],
   intro_videos: ["Intro movies", "Shows the MicroProse movies at start (Esc skips).", ""],
+  gp3replay: ["Whole-race replay (GP3 1.13)", "Loads GP3Replay.dll when it is in the game folder.",
+    "GP3 1.13 keeps only a short part of the race in the replay. GP3Replay.dll enlarges the replay to the whole race (over 2 hours), changing it in memory when the game starts, with no separate executable like gp3v.exe. Race saves are about 13 MB. No effect on GP3 2000."],
+  replay_keys: ["GP3 2000 replay keys (GP3 1.13)", "F1 to F9 in the replay: laps, play/pause, slow motion, smooth rewind and fast forward, frame by frame.",
+    "During the race GP3 Reborn keeps a snapshot every second (about 10 KB each). In the replay F5 and F8 rewind and fast forward through them, F1 and F2 jump lap by lap, F3 (or P) pauses, F4 is slow motion and F6/F7 move one frame. P then R opens the replay at the start of the lap. Needs GP3Replay.dll for the whole race."],
+  replay_legend: ["Replay key legend", "Shows the F1 to F9 keys at the bottom of the screen in the replay.",
+    "The active key is highlighted in yellow. F9 shows or hides the legend during the replay."],
+  replay_fx_fix: ["Spray and smoke in the replay (GP3 1.13)", "Rain spray and smoke no longer disappear after rewinding the replay.",
+    "GP3 1.13 keeps the time of the next spray and smoke effect and that time only moves forward. When the replay was rewound it stayed ahead and nothing was drawn until the replay caught up. When on, the time goes back with the replay."],
+  replay_2h: ["2-hour replay (GP3 2000)", "The \u201cLength of replay\u201d slider goes up to 2:00:00 (the game stops at 1:30:00).",
+    "GP3 2000 sizes the replay from the PC's memory and stops at 1h30. When on, the maximum becomes 2 hours (about 120 MB of memory). Set it in Options > Graphics > Length of replay."],
   sound3d: ["3D sound", "Sound positions like on Windows (GP3 2000 and GPxSound use it).",
     "On GP3 2000 the 3D sound fix (which stops the game closing in long races) is always applied by itself."],
   numpad_keys: ["Numeric keypad", "Follows NumLock, or always navigation, or always numbers.",
@@ -528,6 +551,11 @@ function build() {
   row("c_game", "game", "intro_videos", "intro_videos", tog("game", "intro_videos", "1"), "1");
   row("c_game", "game", "sound3d", "sound3d", tog("game", "sound3d", "1"), "1");
   row("c_game", "game", "numpad_keys", "numpad_keys", seg("game", "numpad_keys", [["0", () => t("n_lock")], ["1", () => t("n_nav")], ["2", () => t("n_num")]], "0"), "0");
+  row("c_replay", "game", "gp3replay", "gp3replay", tog("game", "gp3replay", "1"), "1", true);
+  row("c_replay", "game", "replay_keys", "replay_keys", tog("game", "replay_keys", "1"), "1", true);
+  row("c_replay", "game", "replay_legend", "replay_legend", tog("game", "replay_legend", "1"), "1", true);
+  row("c_replay", "game", "replay_fx_fix", "replay_fx_fix", tog("game", "replay_fx_fix", "1"), "1", true);
+  row("c_replay", "game", "replay_2h", "replay_2h", tog("game", "replay_2h", "1"), "1", true);
 }
 
 const PRESETS = [

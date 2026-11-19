@@ -1,4 +1,4 @@
-GP3 Reborn 1.1.0 for Linux
+GP3 Reborn 1.2.0 for Linux
 Grand Prix 3 and Grand Prix 3 2000 running natively on Linux - no Wine, no Proton, no Steam
 ==========================================================================================
 
@@ -86,6 +86,7 @@ Notes:
   GPxPatch                   GPxPatch configuration screen and launcher for
                              Linux (GPxPatch itself: see section 2)
   GP3Reborn-Configurator.html  edits gp3rt.ini in your browser
+  GP3Replay.dll              whole-race replay on GP3 1.13 (optional)
   gp3rt.ini                  video and game settings
   instalar-atalho.sh         (optional) creates the menu shortcuts from a
                              terminal
@@ -153,6 +154,8 @@ Main options:
            the "grey wall" near the TV cameras).
   Game:    GPxPatch on/off, tracks beyond the original limits, intro
            movies, 3D sound, numeric keypad behaviour.
+  Replay:  whole-race replay and GP3 2000 keys on GP3 1.13, spray and
+           smoke in the replay, 2-hour replay on GP3 2000.
 
 
 7. IN THE GAME
@@ -163,6 +166,22 @@ Alt+F4      quit
 Esc         skip the intro movies
 Wheel: it appears in GP3's controls menu under the name Linux gives it.
 Calibrate it in the game menu, as on Windows.
+
+IN THE REPLAY (GP3 1.13; P pauses the race and R opens the replay, already
+playing from the start of the lap; the legend is at the bottom):
+  F1 / F2     previous / next lap
+  F3 or P     play / pause
+  F4          slow motion (while held); paused: one frame
+  F5 / F8     rewind / fast forward (while held)
+  F6 / F7     one frame back / forward (repeats while held)
+  F9          show / hide the legend
+The replay ends where you paused; then P resumes the race.
+With GP3Replay.dll in the folder, the replay keeps the WHOLE RACE (over 2
+hours), without GP3 Video's gp3v.exe. During the race GP3 Reborn keeps a
+snapshot every second (about 10 KB each): that is what makes rewind and
+fast forward smooth, with the right camera.
+On GP3 2000 the replay keys are the game's own, and the replay goes up to
+2 hours (Options > Graphics > Length of replay; the game stopped at 1h30).
 
 
 8. ACCENTED LETTERS (ç, ã, é, ñ...)
@@ -203,6 +222,9 @@ Special thanks to:
   the Grand Prix Games group on Facebook. Merci, Stephan!
 - JF ("BeADriver" on GrandPrixGames.org): the log that revealed GP3 2000's
   3D sound bug in long races, and testing the fix.
+- Rafa, creator of Gp3Video, who years ago gave GP3 1.13 a whole-race
+  replay. He was the inspiration for GP3Replay.dll, which does the same
+  replay enlargement without a separate executable.
 
 GPxPatch 4.52 (c) 2001-2019 René Smit - not included; get it from
 https://www.sdidit.nl. Thank you, René!

@@ -82,6 +82,7 @@ uint8_t g_keystate[256];
 
 void win_input_key(int vk, int scancode, int down) {
     if (vk <= 0 || vk > 255) return;
+    { extern int replayctl_key(int vk, int down); if (replayctl_key(vk, down)) return; }
     int was = g_keystate[vk] & 0x80;
     g_keystate[vk] = down ? 0x80 : 0;
     LPARAM l = 1 | ((scancode & 0x1ff) << 16);
@@ -537,3 +538,5 @@ static const export_t user32_exports[] = {
 };
 #undef E
 void user32_register(void) { rt_register_exports(user32_exports); }
+
+void replayctl_inject_key(int vk, int scancode, int down) { win_input_key(vk, scancode, down); }

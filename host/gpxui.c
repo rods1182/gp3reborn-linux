@@ -1668,6 +1668,13 @@ static void tab_gp3rt(void) {
     W_sel(R, "game", "numpad_keys", "0", "Teclado numérico", np, 3, NULL, U(300));
     W_check(R, "game", "sound3d", 1, "Som 3D (DirectSound3D)", "Usado pelo GP3 2000 e pelo GPxSound.");
     group_end();
+    group_begin("Replay", NULL);
+    W_check(R, "game", "replay_keys", 1, "Teclas do replay do GP3 2000 (GP3 1.13)", "F1 a F9 no replay: voltas, pausa, câmera lenta, voltar e avançar.");
+    W_check(R, "game", "replay_legend", 1, "Legenda das teclas no replay", "Mostra F1 a F9 embaixo da tela.");
+    W_check(R, "game", "replay_fx_fix", 1, "Spray e fumaça no replay (GP3 1.13)", "Não somem mais depois de voltar o replay.");
+    W_check(R, "game", "gp3replay", 1, "Replay da corrida inteira (GP3 1.13)", "Carrega o GP3Replay.dll quando ele está na pasta do jogo.");
+    W_check(R, "game", "replay_2h", 1, "Replay de 2 horas (GP3 2000)", "Length of replay até 2:00:00.");
+    group_end();
 #endif
 }
 

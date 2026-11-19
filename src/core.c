@@ -578,6 +578,19 @@ int main(int argc, char **argv) {
     }
     if (!gpx_wanted) gp3_fix_string_table();   /* GPxPatch rewrites the string table loader itself */
     gp3_fix_sound_lock();
+    if (!getenv("GP3_NO_FXFIX")) gp3_fix_replay_effects();
+    if (!getenv("GP3_NO_REPLAY2H")) gp3_replay_2h();
+    { extern void gp3_replay_keys(int legend); if (!getenv("GP3_NO_REPLAYKEYS")) gp3_replay_keys(!getenv("GP3_NO_REPLAYLEGEND")); }
+    /* GP3Replay.dll (replay of the whole race, GP3 1.13): the same add-on as on Windows */
+    { char hp[1024];
+      if (!getenv("GP3_NO_GP3REPLAY") && path_to_host("GP3Replay.dll", hp, sizeof hp)) {
+          module_t *vm = pe_load(hp, "GP3Replay.dll", 0);
+          uint32_t st = vm ? pe_get_proc(vm, "GP3Replay_Status", 0) : 0;
+          static char msg[256]; msg[0] = 0;
+          if (st) ((int (__attribute__((stdcall)) *)(char *, int))(uintptr_t)st)(msg, sizeof msg);
+          LOG("%s", vm ? (st ? msg : "GP3Replay.dll loaded (no status)") : "GP3Replay.dll found but could not be loaded");
+      } }
+    { extern void rptrace_install(void) __attribute__((weak)); if (rptrace_install) rptrace_install(); }
     if (gpx_wanted) {
         /* GPxPatch: on Windows its launcher starts GP3 under a debugger and injects code that
            loads gpxpdata\gxm\gpxpatch.gxm at the entry point; that module loads the others

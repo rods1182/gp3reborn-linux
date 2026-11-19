@@ -81,7 +81,13 @@ Because the graphics are redrawn by GP3 Reborn, not by a 1998 driver:
   fixes that lock in memory;
 - lighter drawing: each frame goes to the graphics card in one go, and
   textures are converted, reused and filtered with less work (a big
-  help on Intel graphics).
+  help on Intel graphics);
+- GP3 1.13 replay of the whole race (with GP3Replay.dll, the same file
+  as on Windows) and GP3 2000-style replay keys: GP3 Reborn keeps a
+  snapshot of the race every second, so rewind and fast forward are
+  smooth and the replay stays identical to the race. Rain spray and
+  smoke no longer vanish after rewinding;
+- GP3 2000 replays up to 2 hours instead of 1h30.
 
 
 5. And GPxPatch?

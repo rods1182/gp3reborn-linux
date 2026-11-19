@@ -33,9 +33,9 @@
 #include "keys.h"
 
 #ifdef GPXP_MAIN
-#define VERSION "1.1.0"      /* GPxPatch for Linux */
+#define VERSION "1.2.0"      /* GPxPatch for Linux */
 #else
-#define VERSION "1.1.0"
+#define VERSION "1.2.0"
 #endif
 /* ------------------------------------------------------------------ */
 static FILE *g_logf;
@@ -652,6 +652,12 @@ int main(int argc, char **argv) {
     if (!ini_int("game", "skip_asserts", 1)) setenv("GP3_STRICT_ASSERTS", "1", 1);
     if (!getenv("GP3_FORCE_GPX") && !ini_int("game", "gpxpatch", 1)) setenv("GP3_NO_GPX", "1", 1);
     if (!ini_int("game", "sound3d", 1)) setenv("GP3_NO_DS3D", "1", 1);
+    /* replay ([game], same keys as gp3rt.ini on Windows) */
+    if (!ini_int("game", "replay_keys", 1)) setenv("GP3_NO_REPLAYKEYS", "1", 1);
+    if (!ini_int("game", "replay_legend", 1)) setenv("GP3_NO_REPLAYLEGEND", "1", 1);
+    if (!ini_int("game", "replay_fx_fix", 1)) setenv("GP3_NO_FXFIX", "1", 1);
+    if (!ini_int("game", "replay_2h", 1)) setenv("GP3_NO_REPLAY2H", "1", 1);
+    if (!ini_int("game", "gp3replay", 1)) setenv("GP3_NO_GP3REPLAY", "1", 1);
     static char ws_w[16], ws_h[16], fov[16];
     int ww = ini_int("video", "wide_width", -1), wh = ini_int("video", "wide_height", -1);
     if (ww < 0 || wh < 0) { SDL_DisplayMode d; if (!SDL_GetDesktopDisplayMode(0, &d)) { ww = d.w; wh = d.h; } else ww = wh = 0; }

@@ -1,6 +1,24 @@
 # Changelog
 
-## 1.1.0
+## 1.2.0
+
+Same version number as GP3RT 1.2.0 for Windows. 1.1.0 was never published: it is included here. / Mesmo número de versão do GP3RT 1.2.0 para Windows. A 1.1.0 não chegou a ser publicada e está incluída aqui.
+
+**English**
+- `GP3Replay.dll` (GP3 1.13): whole-race replay, replacing GP3 Video's gp3v.exe; the same file as on Windows, loaded by GP3 Reborn when it is in the game folder. Inspired by Rafa's Gp3Video.
+- GP3 2000-style replay keys on GP3 1.13 with an on-screen legend: F1/F2 laps, F3 or P play/pause, F4 slow motion, F5/F8 smooth rewind/fast forward, F6/F7 frame by frame, F9 legend. A packed snapshot per second keeps the replay identical to the race after rewinding.
+- GP3 1.13: rain spray and smoke no longer vanish after rewinding the replay.
+- GP3 2000: replays up to 2 hours (was 1h30).
+- `gp3rt.ini` `[game]`: `gp3replay`, `replay_keys`, `replay_legend`, `replay_fx_fix`, `replay_2h` (same as Windows); new Replay section in the configurator and in the GPxPatch screen.
+
+**Português**
+- `GP3Replay.dll` (GP3 1.13): replay da corrida inteira, substituindo o gp3v.exe do GP3 Video; o mesmo arquivo do Windows, carregado pelo GP3 Reborn quando está na pasta do jogo. Inspirado no Gp3Video, do Rafa.
+- Teclas do replay do GP3 2000 no GP3 1.13, com legenda na tela: F1/F2 voltas, F3 ou P play/pausa, F4 câmera lenta, F5/F8 voltar/avançar suaves, F6/F7 quadro a quadro, F9 legenda. Uma foto compactada por segundo mantém o replay idêntico à corrida depois de voltar.
+- GP3 1.13: o spray da chuva e a fumaça não somem mais depois de voltar o replay.
+- GP3 2000: replay de até 2 horas (era 1h30).
+- `gp3rt.ini` `[game]`: `gp3replay`, `replay_keys`, `replay_legend`, `replay_fx_fix`, `replay_2h` (iguais ao Windows); seção Replay nova no configurador e na tela do GPxPatch.
+
+## 1.1.0 (not published separately / não publicada à parte)
 
 **English**
 - Same engine as GP3RT 1.1.0 for Windows: each frame's drawing goes to the graphics card in one go; textures are converted, reused and mip-mapped with much less work (big help on Intel graphics).

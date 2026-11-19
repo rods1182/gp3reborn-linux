@@ -19,6 +19,8 @@ Build
   ./build_linux.sh            -> build/linux/gp3, build/linux/gp3-game
   ./build.sh                  -> build/gp3run (headless test runner)
   ./build_win.sh              -> build/win/ddraw.dll (Windows)
+  ./build_gp3replay.sh        -> build/win/GP3Replay.dll (whole-race replay for
+                                 GP3 1.13; the same file on Windows and Linux)
 
 Layout
   src/        shared runtime: PE loader, Win32/DirectX layer, renderers

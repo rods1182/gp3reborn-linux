@@ -84,7 +84,13 @@ Como quem desenha é o GP3 Reborn, e não um driver de 1998:
   tocando. O GP3 Reborn corrige essa trava na memória;
 - desenho mais leve: cada quadro vai para a placa de vídeo de uma vez, e
   as texturas são convertidas, reaproveitadas e filtradas com menos
-  trabalho (ajuda muito em placas Intel).
+  trabalho (ajuda muito em placas Intel);
+- replay da corrida inteira no GP3 1.13 (com o GP3Replay.dll, o mesmo
+  arquivo do Windows) e teclas do replay como no GP3 2000: o GP3 Reborn
+  guarda uma foto da corrida por segundo, então voltar e avançar são
+  suaves e o replay continua idêntico à corrida. O spray da chuva e a
+  fumaça não somem mais depois de voltar;
+- replay de até 2 horas no GP3 2000, em vez de 1h30.
 
 
 5. E o GPxPatch?

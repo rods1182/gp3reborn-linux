@@ -92,12 +92,19 @@ static void ctl_poll(void) {
         else if (!strcmp(cmd, "type")) { for (char *c = a1; *c; c++) win_input_char(*c == '_' ? ' ' : *c); }
         else if (!strcmp(cmd, "shot")) { extern int g_probe_active; g_probe_active = 1; plat_screenshot(a1); }
         else if (!strcmp(cmd, "dump")) { FILE *o = fopen(a1, "wb"); if (o) { fwrite((void *)(uintptr_t)0x401000, 1, 0xd72000 - 0x401000, o); fclose(o); LOG("ctl: dumped %s", a1); } }
+        else if (!strcmp(cmd, "dumpr")) {   /* dumpr <file> <va>:<len> (hex) */
+            unsigned va = 0, ln = 0; FILE *o;
+            if (sscanf(a2, "%x:%x", &va, &ln) == 2 && (o = fopen(a1, "wb"))) { fwrite((void *)(uintptr_t)va, 1, ln, o); fclose(o); LOG("ctl: dumped %s", a1); }
+        }
         else if (!strcmp(cmd, "null")) g_null_draw = atoi(a1);
         else if (!strcmp(cmd, "pokelist")) {   /* pokelist <file>: binary pairs [u32 va][u32 value] */
             FILE *d = fopen(a1, "rb"); uint32_t pr[2]; int k = 0;
             if (d) { while (fread(pr, 4, 2, d) == 2) { *(volatile uint32_t *)(uintptr_t)pr[0] = pr[1]; k++; } fclose(d); }
             LOG("ctl: poked list %s (%d)", a1, k);
         }
+        else if (!strcmp(cmd, "poked")) { unsigned long va = strtoul(a1, NULL, 16); *(volatile int32_t *)(uintptr_t)va = (int32_t)strtol(a2, NULL, 0); LOG("ctl: poked %lx = %s", va, a2); }
+        else if (!strcmp(cmd, "peekd")) { unsigned long va = strtoul(a1, NULL, 16); LOG("ctl: peek %lx = %d", va, *(volatile int32_t *)(uintptr_t)va); }
+        else if (!strcmp(cmd, "pokeb")) { unsigned long va = strtoul(a1, NULL, 16); *(volatile uint8_t *)(uintptr_t)va = (uint8_t)strtoul(a2, NULL, 16); LOG("ctl: pokeb %lx = %s", va, a2); }
         else if (!strcmp(cmd, "poke")) {   /* poke <dumpfile> <va> <len>: copy bytes from a dump (based at 0x401000) */
             char df[200]; unsigned long va = 0, ln = 0;
             if (sscanf(line, "%*s %199s %li %li", df, (long *)&va, (long *)&ln) == 3) {

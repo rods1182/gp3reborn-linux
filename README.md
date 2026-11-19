@@ -18,7 +18,7 @@ It shares its engine with [GP3RT](https://github.com/rods1182/gp3rt---GrandPrix-
 
 ### Download
 
-Open **Releases** (on the right of this page) and download **GP3Reborn-Linux-1.1.0.tar.gz**. The automatic "Source code" links are for developers only.
+Open **Releases** (on the right of this page) and download **GP3Reborn-Linux-1.2.0.tar.gz**. The automatic "Source code" links are for developers only.
 
 ### Quick start
 
@@ -57,6 +57,7 @@ Do **not** run `GPxPatch.exe`, which is a Windows program. On Linux, GP3 Reborn 
 - Softer rain spray near the TV cameras.
 - 3D sound in GP3 2000, and wheels with force feedback.
 - GP3's per-frame geometry limit is raised: detailed community tracks no longer lose car bodies or crash.
+- Whole-race replay on GP3 1.13 with `GP3Replay.dll` (no gp3v.exe, no Wine), GP3 2000-style replay keys (F1–F9, on-screen legend, smooth rewind and fast forward), and 2-hour replays on GP3 2000.
 - No 32-bit libraries are needed on your system.
 
 ### Requirements
@@ -89,7 +90,7 @@ Usa o mesmo motor do [GP3RT](https://github.com/rods1182/gp3rt---GrandPrix-3-Run
 
 ### Download
 
-Abra **Releases** (à direita desta página) e baixe o **GP3Reborn-Linux-1.1.0.tar.gz**. Os links automáticos "Source code" são só para desenvolvedores.
+Abra **Releases** (à direita desta página) e baixe o **GP3Reborn-Linux-1.2.0.tar.gz**. Os links automáticos "Source code" são só para desenvolvedores.
 
 ### Começo rápido
 
@@ -128,6 +129,7 @@ No GPxPatch, deixe o **Debug LIGADO** (o GP3 Reborn precisa dele) e a **CPU em t
 - Spray de chuva mais suave perto das câmeras de TV.
 - Som 3D no GP3 2000, e volantes com force feedback.
 - O limite de geometria por quadro do GP3 foi aumentado: pistas detalhadas da comunidade não perdem mais a carroceria dos carros nem fecham.
+- Replay da corrida inteira no GP3 1.13 com o `GP3Replay.dll` (sem gp3v.exe, sem Wine), teclas do replay do GP3 2000 (F1 a F9, legenda na tela, voltar e avançar suaves) e replay de 2 horas no GP3 2000.
 - Não precisa de bibliotecas de 32 bits no sistema.
 
 ### O que precisa
@@ -152,6 +154,7 @@ Mande:
 
 - GP3 Reborn for Linux: Rodrigo Motta (Rods), with Claude (Anthropic).
 - Special thanks / agradecimento especial: **Stephan Séguin** ("Seguin" on GrandPrixGames.org) — the first user and the first feedback, who spread the word on GrandPrixGames.org, GP2Forum and the Grand Prix Games group on Facebook; **JF ("BeADriver")** — the log that revealed GP3 2000's 3D sound bug.
+- **Rafa**, creator of Gp3Video, who gave GP3 1.13 its whole-race replay: the inspiration for GP3Replay.dll / criador do Gp3Video, a inspiração do GP3Replay.dll.
 - GPxPatch 4.52 © 2001–2019 René Smit — not included; get it from <https://www.sdidit.nl>. Thank you, René!
 - Grand Prix 3 / Grand Prix 3 2000 © Geoff Crammond / MicroProse.
 - Components:
