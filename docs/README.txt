@@ -1,4 +1,4 @@
-GP3 Reborn 1.2.0 for Linux
+GP3 Reborn 1.2.1 for Linux
 Grand Prix 3 and Grand Prix 3 2000 running natively on Linux - no Wine, no Proton, no Steam
 ==========================================================================================
 
@@ -167,9 +167,11 @@ Esc         skip the intro movies
 Wheel: it appears in GP3's controls menu under the name Linux gives it.
 Calibrate it in the game menu, as on Windows.
 
-IN THE REPLAY (GP3 1.13; P pauses the race and R opens the replay, already
-playing from the start of the lap; the legend is at the bottom):
+IN THE REPLAY (GP3 1.13; R opens the replay, already playing from the
+start of the lap, with or without P first; the legend is at the bottom):
   F1 / F2     previous / next lap
+  Shift+F1    go to the start of the race
+  Shift+F2    go to where the race stopped (stays paused)
   F3 or P     play / pause
   F4          slow motion (while held); paused: one frame
   F5 / F8     rewind / fast forward (while held)
@@ -179,7 +181,10 @@ The replay ends where you paused; then P resumes the race.
 With GP3Replay.dll in the folder, the replay keeps the WHOLE RACE (over 2
 hours), without GP3 Video's gp3v.exe. During the race GP3 Reborn keeps a
 snapshot every second (about 10 KB each): that is what makes rewind and
-fast forward smooth, with the right camera.
+fast forward smooth, with the right camera. After loading a saved race,
+the replay still goes back to the start: it uses the snapshots GP3Replay.dll
+keeps in the save (one every 32 s) and makes the 1-second ones again as it
+plays through.
 On GP3 2000 the replay keys are the game's own, and the replay goes up to
 2 hours (Options > Graphics > Length of replay; the game stopped at 1h30).
 
@@ -219,7 +224,8 @@ GP3 Reborn for Linux: Rodrigo Motta, with Claude (Anthropic).
 Special thanks to:
 - Stephan Séguin ("Seguin" on GrandPrixGames.org): the first user and the
   first feedback; he spread the word on GrandPrixGames.org, GP2Forum and
-  the Grand Prix Games group on Facebook. Merci, Stephan!
+  the Grand Prix Games group on Facebook; and the report of the replay
+  after loading a saved race (fixed in 1.2.1). Merci, Stephan!
 - JF ("BeADriver" on GrandPrixGames.org): the log that revealed GP3 2000's
   3D sound bug in long races, and testing the fix.
 - Rafa, creator of Gp3Video, who years ago gave GP3 1.13 a whole-race

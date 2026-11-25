@@ -566,7 +566,7 @@ static const char *const g_i18n[][2] = {
 {"Som 3D (DirectSound3D)","3D sound (DirectSound3D)"},
 {"Usado pelo GP3 2000 e pelo GPxSound.","Used by GP3 2000 and GPxSound."},
 {"Teclas do replay do GP3 2000 (GP3 1.13)","GP3 2000 replay keys (GP3 1.13)"},
-{"F1 a F9 no replay: voltas, pausa, câmera lenta, voltar e avançar.","F1 to F9 in the replay: laps, pause, slow motion, rewind and fast forward."},
+{"F1 a F9 no replay: voltas, pausa, câmera lenta, voltar e avançar. Shift+F1: largada; Shift+F2: fim.","F1 to F9 in the replay: laps, pause, slow motion, rewind and fast forward. Shift+F1: start; Shift+F2: end."},
 {"Legenda das teclas no replay","Replay key legend"},
 {"Mostra F1 a F9 embaixo da tela.","Shows F1 to F9 at the bottom of the screen."},
 {"Spray e fumaça no replay (GP3 1.13)","Spray and smoke in the replay (GP3 1.13)"},

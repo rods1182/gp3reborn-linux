@@ -1,4 +1,4 @@
-GP3 Reborn 1.2.0 para Linux
+GP3 Reborn 1.2.1 para Linux
 Grand Prix 3 e Grand Prix 3 2000 nativos no Linux - sem Wine, sem Proton, sem Steam
 ==================================================================================
 
@@ -166,9 +166,11 @@ Esc         pula os vídeos de abertura
 Volante: aparece no menu de controles do GP3 com o nome que o Linux dá a
 ele. Calibre no menu do jogo, como no Windows.
 
-NO REPLAY (GP3 1.13; P pausa a corrida e R abre o replay já tocando, a
-partir do início da volta; a legenda aparece embaixo da tela):
+NO REPLAY (GP3 1.13; R abre o replay já tocando, a partir do início da
+volta, com ou sem P antes; a legenda aparece embaixo da tela):
   F1 / F2     volta anterior / próxima volta
+  Shift+F1    vai para a largada
+  Shift+F2    vai para o ponto em que a corrida parou (fica pausado)
   F3 ou P     play / pausa
   F4          câmera lenta (enquanto segura); pausado: um quadro
   F5 / F8     voltar / avançar rápido (enquanto segura)
@@ -179,6 +181,9 @@ Com o GP3Replay.dll na pasta, o replay guarda a CORRIDA INTEIRA (mais de 2
 horas), sem precisar do gp3v.exe do GP3 Video. Durante a corrida o GP3
 Reborn guarda uma foto por segundo (uns 10 KB cada): é com elas que voltar
 e avançar ficam suaves e com a câmera certa.
+Depois de carregar uma corrida salva, o replay também volta até a largada:
+ele usa as fotos que o GP3Replay.dll guarda no save (uma a cada 32 s) e
+refaz as de 1 segundo enquanto passa pelo trecho.
 No GP3 2000 as teclas do replay são as do próprio jogo, e o replay vai
 até 2 horas (Options > Graphics > Length of replay; o jogo parava em 1h30).
 
@@ -218,7 +223,8 @@ GP3 Reborn para Linux: Rodrigo Motta, com Claude (Anthropic).
 Agradecimento especial a:
 - Stephan Séguin ("Seguin" no GrandPrixGames.org): o primeiro usuário e
   o primeiro retorno; divulgou o projeto no GrandPrixGames.org, no
-  GP2Forum e no grupo Grand Prix Games do Facebook. Merci, Stephan!
+  GP2Forum e no grupo Grand Prix Games do Facebook; e o relato do replay
+  depois de carregar uma corrida salva (corrigido na 1.2.1). Merci, Stephan!
 - JF ("BeADriver" no GrandPrixGames.org): o log que revelou o erro do som
   3D do GP3 2000 em corridas longas e o teste da correção.
 - Rafa, criador do Gp3Video, que há anos deu ao GP3 1.13 o replay da

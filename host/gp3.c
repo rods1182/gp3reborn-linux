@@ -33,9 +33,9 @@
 #include "keys.h"
 
 #ifdef GPXP_MAIN
-#define VERSION "1.2.0"      /* GPxPatch for Linux */
+#define VERSION "1.2.1"      /* GPxPatch for Linux */
 #else
-#define VERSION "1.2.0"
+#define VERSION "1.2.1"
 #endif
 /* ------------------------------------------------------------------ */
 static FILE *g_logf;

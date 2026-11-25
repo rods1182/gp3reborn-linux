@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.2.1
+
+**English**
+- Replay after loading a saved race (GP3 1.13): it only went back to where the race was loaded, because the 1-second snapshots live in memory only. GP3Replay.dll's save also keeps GP3's own snapshots (one every ~32 s) and the whole input buffer; when the replay opens, the part the store lacks is taken from them, and as the replay plays through it the 1-second snapshots are made again (verified tick by tick against the live race). Reported by Stephan Séguin.
+- Pressing R right after loading the save (the race standing still, no P first) left the replay stuck rewinding: the race clock was only noted while the race ran. It is now noted every frame.
+- New replay keys: Shift+F1 (start of the race) and Shift+F2 (where the race stopped, paused). Neither GP3 nor GPxPatch uses them; both are on the legend.
+
+**Português**
+- Replay depois de carregar uma corrida salva (GP3 1.13): voltava só até o ponto do carregamento, porque as fotos de 1 em 1 segundo ficam só na memória. O save do GP3Replay.dll guarda também as fotos do próprio GP3 (uma a cada ~32 s) e o buffer de comandos inteiro; ao abrir o replay, a parte que falta é tirada delas, e as fotos de 1 segundo são refeitas enquanto o replay passa pelo trecho (conferido passo a passo com a corrida). Relatado por Stephan Séguin.
+- Apertar R logo depois de carregar o save (corrida parada, sem P antes) deixava o replay preso voltando: o relógio da corrida só era anotado com a corrida andando. Agora é anotado a cada quadro.
+- Teclas novas no replay: Shift+F1 (largada) e Shift+F2 (ponto em que a corrida parou, pausado). O GP3 e o GPxPatch não usam essas combinações; as duas estão na legenda.
+
 ## 1.2.0
 
 Same version number as GP3RT 1.2.0 for Windows. 1.1.0 was never published: it is included here. / Mesmo número de versão do GP3RT 1.2.0 para Windows. A 1.1.0 não chegou a ser publicada e está incluída aqui.

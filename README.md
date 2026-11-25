@@ -18,7 +18,7 @@ It shares its engine with [GP3RT](https://github.com/rods1182/gp3rt---GrandPrix-
 
 ### Download
 
-Open **Releases** (on the right of this page) and download **GP3Reborn-Linux-1.2.0.tar.gz**. The automatic "Source code" links are for developers only.
+Open **Releases** (on the right of this page) and download **GP3Reborn-Linux-1.2.1.tar.gz**. The automatic "Source code" links are for developers only.
 
 ### Quick start
 
@@ -90,7 +90,7 @@ Usa o mesmo motor do [GP3RT](https://github.com/rods1182/gp3rt---GrandPrix-3-Run
 
 ### Download
 
-Abra **Releases** (à direita desta página) e baixe o **GP3Reborn-Linux-1.2.0.tar.gz**. Os links automáticos "Source code" são só para desenvolvedores.
+Abra **Releases** (à direita desta página) e baixe o **GP3Reborn-Linux-1.2.1.tar.gz**. Os links automáticos "Source code" são só para desenvolvedores.
 
 ### Começo rápido
 
