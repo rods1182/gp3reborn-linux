@@ -1,3 +1,15 @@
+# GP3 Reborn agora é o GP3RT para Linux / GP3 Reborn is now GP3RT for Linux
+
+**Português.** Este repositório está arquivado. A edição para Linux continua, com o nome **GP3RT para Linux**, no repositório do GP3RT: mesmo código, mesmas opções do gp3rt.ini e os mesmos números de versão do Windows. Os downloads estão em
+https://github.com/rods1182/gp3rt---grandprix-3-runtime/releases
+
+**English.** This repository is archived. The Linux edition goes on as **GP3RT for Linux** in the GP3RT repository: same code, same gp3rt.ini options and the same version numbers as on Windows. Downloads:
+https://github.com/rods1182/gp3rt---grandprix-3-runtime/releases
+
+As versões antigas do GP3 Reborn (até a 1.2.1) continuam em Releases deste repositório. / Old GP3 Reborn releases (up to 1.2.1) remain under this repository's Releases.
+
+---
+
 # GP3 Reborn for Linux
 
 **Grand Prix 3 and Grand Prix 3 2000 running natively on Linux — no Wine, no Proton, no Steam.**
